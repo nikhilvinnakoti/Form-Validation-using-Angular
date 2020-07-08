@@ -1,0 +1,153 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h4>UserForm
+      </h4>
+    </div>
+  </div>
+</div>
+<form [formGroup]="userform" (submit)="submitData()">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text"
+            [ngClass]="{'error':userform.get('Name').invalid&& userform.get('Name').dirty,'success':userform.get('Name').valid}"
+            formControlName="Name" class="form-control">
+          <span style="color:red" *ngIf="userform.get('Name').invalid && userform.get('Name').dirty">Please Enter Your
+            Name</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <label for="">Email</label>
+        <input type="text"
+          [ngClass]="{'error':userform.get('Email').invalid&& userform.get('Email').dirty,'success':userform.get('Name').valid}"
+          formControlName="Email" class="form-control">
+        <span style="color:red" *ngIf="userform.get('Email').invalid && userform.get('Email').dirty">Please Enter
+          Email</span>
+
+      </div>
+
+      <div class="col-lg-4">
+        <label for="">Mobile</label>
+        <input type="text"
+          [ngClass]="{'error':userform.get('Mobile').invalid&& userform.get('Mobile').dirty,'success':userform.get('Mobile').valid}"
+          formControlName="Mobile" class="form-control" >
+        <span style="color:red" *ngIf="userform.get('Mobile').invalid && userform.get('Mobile').dirty">Please Enter Contact Number</span>
+          
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="">Password</label>
+          <input type="password"
+          [ngClass]="{'error':userform.get('Password').invalid&& userform.get('Password').dirty,'success':userform.get('Password').valid}"
+          formControlName="Password" class="form-control" >
+        <span style="color:red" *ngIf="userform.get('Password').invalid && userform.get('Password').dirty">Please Enter Password
+        </span>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <label for="">Confirm password</label>
+      
+        <input type="password"
+          [ngClass]="{'error':userform.get('Confirm Password').invalid&& userform.get('Confirm Password').dirty,'success':userform.get('Confirm Password').valid}"
+          formControlName="Confirm Password" class="form-control">
+        <span style="color:red" *ngIf="userform.get('Confirm Password').invalid && userform.get('Confirm Password').dirty">Please confirm password
+          </span>
+      </div>
+
+      <div class="col-lg-4">
+        <label for="">Country</label>
+        <select name="country" formControlName="country" class="form-control">
+          <option *ngFor = "let country of countryList" [value]="country.code">{{country.name}}</option>
+          
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="">State</label>
+          <select name="state" formControlName="state" class="form-control">
+            <option *ngFor = "let state of stateList" [value]="state.code">{{state.name}}</option>
+            
+          </select>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <label for="">City</label>
+        <select name="city" formControlName="city" class="form-control">
+          <option value="VZ">Vizag</option>
+          <option value="LA">LosAngeles</option>
+        </select>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="">Gender</label>
+          <div class="d-flex justify-content-between">
+            <div class="col-lg-6">
+              <input type="radio" formControlName="Gender" name="Gender" value="Male">&nbsp;Male
+            </div>
+            <div class="col-lg-6">
+              <input type="radio" formControlName="Gender" name="Gender" value="Female">&nbsp;Female
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="">Marital Status</label>
+          <div class="d-flex justify-content-between">
+            <div class="col-lg-6">
+              <input type="radio" formControlName="Marital Status" name="Marital Status" value="Married">&nbsp;Married
+            </div>
+            <div class="col-lg-6">
+              <input type="radio" formControlName="Marital Status" name="Marital Status" value="Unmarried">&nbsp;Unmarried
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="form-group">
+        <label for="Favorite Food">Favorite Food</label>
+        
+        <input type="text"
+          [ngClass]="{'error':userform.get('Favorite Dish').invalid&& userform.get('Favorite Dish').dirty,'success':userform.get('Favorite Dish').valid}"
+          formControlName="Favorite Dish" class="form-control" name="Favorite Dish">
+        <span style="color:red" *ngIf="userform.get('Favorite Dish').invalid && userform.get('Favorite Dish').dirty">Please Enter Food
+          </span>
+      </div>
+    </div>
+
+      <div class="col-lg-4">
+        <div class="form-group">
+        <label for="">Favorite Color</label>
+        
+        <input type="text"
+        [ngClass]="{'error':userform.get('Favorite Color').invalid&& userform.get('Favorite Color').dirty,'success':userform.get('Favorite Color').valid}"
+        formControlName="Favorite Color" class="form-control" name="Favorite Color">
+      <span style="color:red" *ngIf="userform.get('Favorite Color').invalid && userform.get('Favorite Color').dirty">Please Enter Color
+        </span>
+      </div>
+    </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <input [ngClass]="{'disabled':userform.invalid}"type="submit" value="Submit" class="btn btn-primary">
+      </div>
+    </div>
+
+  </div>
+
+</form>

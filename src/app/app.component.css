@@ -1,0 +1,12 @@
+.error{
+    border:1px solid red;
+}
+.success{
+    border: 1px solid green;
+}
+input[type=radio]{
+    transform:scale(1.5);
+}
+.disabled{
+    opacity:0.6
+}
